@@ -116,8 +116,8 @@ function module.setInvisiWalls(props, sideName)
 
         shortWall.Transparency = 0
         shortWall.Anchored = true
-        shortWall.Material = Enum.Material.Cobblestone
-        shortWall.BrickColor = BrickColor.new('Pastel green')
+        shortWall.Material = Enum.Material.Plastic
+        shortWall.BrickColor = BrickColor.new('Pink')
         Utils.mergeTables(newWall, wallProps)
         Utils.mergeTables(shortWall, shortWallProps)
     end

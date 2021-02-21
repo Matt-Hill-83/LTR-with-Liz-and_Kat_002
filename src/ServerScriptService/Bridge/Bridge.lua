@@ -87,7 +87,9 @@ function module.initBridges(props)
             rod:Destroy()
             local bridgeTop = Utils.getFirstDescendantByName(bridge, 'Top')
             if bridgeConfig.item == 'Rink' then
-                Utils.convertItemAndChildrenToTerrain({parent = bridgeTop, material = 'Air', ignoreKids = true})
+                Utils.convertItemAndChildrenToTerrain(
+                    {parent = bridgeTop, material = 'Air', ignoreKids = true, canCollide = true}
+                )
                 -- CS:AddTag(bridgeTop, 'T-Air')
 
                 local rinkProps = {
