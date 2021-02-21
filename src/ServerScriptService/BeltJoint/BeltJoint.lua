@@ -10,14 +10,15 @@ function module.initBeltJoints(props)
         offsetAdder = Vector3.new(0, 0, 0)
     }
 
-    -- AddModelFromPositioner.addModels(
-    --     {
-    --         parentFolder = props.parentFolder,
-    --         templateName = 'BeltJoint-001',
-    --         positionerTag = 'BeltJointPositioner'
-    --         -- offsetConfig = offsetConfig
-    --     }
-    -- )
+    -- local positioner = Utils.getFirstDescendantByName(myStuff, 'BlockDash')
+    AddModelFromPositioner.addModels(
+        {
+            parentFolder = props.parentFolder,
+            templateName = 'BeltJoint-001',
+            positionerTag = 'BeltJointPositioner'
+            -- offsetConfig = offsetConfig
+        }
+    )
 end
 
 return module

@@ -78,7 +78,7 @@ local function wordFound(tool, touchedBlock)
     LetterUtils.styleGemFromTemplate(
         {
             targetLetterBlock = touchedBlock,
-            templateName = 'Gem_blue'
+            templateName = 'Gem_yellow'
         }
     )
 

@@ -70,22 +70,23 @@ local function addRemoteObjects()
     local islandTemplate = Utils.getFromTemplates('IslandTemplate')
 
     for levelIndex, level in ipairs(levels) do
+        print('levelIndex' .. ' - start=================================>>>')
+        print(levelIndex)
         -- if levelIndex == 2 then break end
 
         local levelConfig = LevelConfigs.levelConfigs[levelIndex]
         local hexIslandConfigs = levelConfig.hexIslandConfigs
 
         StatueGate.initStatueGates({parentFolder = level, configs = hexIslandConfigs})
-        Entrance.initRunFasts(level)
         Door.initDoors({parentFolder = level})
         Key.initKeys({parentFolder = level})
 
         BeltJoint.initBeltJoints({parentFolder = level})
         HexWall.initHexWalls({parentFolder = level})
         Junction.initJunctions({parentFolder = level})
-        HexJunction.convertJunctionsToTerrain({})
+        HexJunction.convertJunctionsToTerrain({parentFolder = level})
         SkiSlope.initSlopes({parentFolder = level})
-        Terrain.initTerrain({parentFolder = workspace})
+        Entrance.initRunFasts(level)
 
         if true then
             local sectorConfigs = levelConfig.sectorConfigs
@@ -93,6 +94,8 @@ local function addRemoteObjects()
         end
     end
     islandTemplate:Destroy()
+
+    -- Terrain.initTerrain({parentFolder = workspace})
 
     PlayerStatManager.init()
     ConfigRemoteEvents.initRemoteEvents()

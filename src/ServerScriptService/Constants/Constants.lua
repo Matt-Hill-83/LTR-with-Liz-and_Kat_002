@@ -2,9 +2,10 @@
 local isDev = false
 --
 local activeSpawn
-activeSpawn = 'SpawnLocation_Hex1'
 activeSpawn = 'SpawnLocation_Hex3'
+activeSpawn = 'SpawnLocation_Hex1'
 activeSpawn = 'SpawnLocation_ramp'
+activeSpawn = 'SpawnLocation_L2H1'
 
 local devGameConfig = {
     singleIsland = false,
@@ -19,8 +20,8 @@ local prodGameConfig = {
     singleIsland = false,
     -- singleIsland = true,
     transparency = true,
-    walkSpeed = 30
-    -- walkSpeed = 80
+    -- walkSpeed = 30
+    walkSpeed = 80
 }
 
 local gameConfig = isDev and devGameConfig or prodGameConfig

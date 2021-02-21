@@ -37,19 +37,10 @@ function module.initKey(props)
     local newReward = rewardTemplate:Clone()
 
     --  find the Tool and pass that in, instead of the model
-    --  find the Tool and pass that in, instead of the model
     local newRewardTool = Utils.getFirstDescendantByType(newReward, 'Tool')
 
     newRewardTool.Parent = rewardFolder
     local newRewardPart = newRewardTool.Handle
-
-    -- local freeParts = Utils.freeAnchoredParts({item = newReward})
-
-    -- local weld = Instance.new('WeldConstraint')
-    -- weld.Name = 'WeldConstraintKey-ppp'
-    -- weld.Parent = newRewardPart
-    -- weld.Part0 = newRewardPart
-    -- weld.Part1 = newReplicatorPart
 
     newRewardPart.CFrame =
         Utils3.setCFrameFromDesiredEdgeOffset(
@@ -62,8 +53,6 @@ function module.initKey(props)
             }
         }
     )
-
-    -- Utils.anchorFreedParts(freeParts)
 
     local keyPart = Utils.getFirstDescendantByName(newReplicator, 'Handle')
     local keyName = positionerModel.name
@@ -81,6 +70,14 @@ function module.initKey(props)
             propName = 'KeyName',
             initialValue = keyName,
             propType = 'StringValue'
+        }
+    )
+
+    LetterUtils.styleGemFromTemplate(
+        {
+            targetLetterBlock = keyPart,
+            templateName = 'Gem_yellow'
+            -- templateName = 'Gem_pink2'
         }
     )
 

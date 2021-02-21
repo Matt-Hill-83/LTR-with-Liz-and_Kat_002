@@ -87,7 +87,8 @@ function module.initBridges(props)
             rod:Destroy()
             local bridgeTop = Utils.getFirstDescendantByName(bridge, 'Top')
             if bridgeConfig.item == 'Rink' then
-                CS:AddTag(bridgeTop, 'T-Air')
+                Utils.convertItemAndChildrenToTerrain({parent = bridgeTop, material = 'Air', ignoreKids = true})
+                -- CS:AddTag(bridgeTop, 'T-Air')
 
                 local rinkProps = {
                     bridgeConfig = bridgeConfig,
@@ -97,7 +98,8 @@ function module.initBridges(props)
                 }
                 local newRink = Rink.addRink(rinkProps)
             else
-                CS:AddTag(bridgeTop, 'T-Grass')
+                -- CS:AddTag(bridgeTop, 'T-Grass')
+                Utils.convertItemAndChildrenToTerrain({parent = bridgeTop, material = 'Grass', ignoreKids = true})
             end
             table.insert(bridges, bridge)
         end

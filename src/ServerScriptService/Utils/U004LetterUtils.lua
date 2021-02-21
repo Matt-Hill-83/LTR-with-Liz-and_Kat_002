@@ -281,7 +281,10 @@ local function styleGemFromTemplate(props)
     local templateName = props.templateName
     local blockProps = props.blockProps or {}
 
-    local gemParts = {targetLetterBlock.Parent.Gem1, targetLetterBlock.Parent.Gem2}
+    local gem1 = Utils.getFirstDescendantByName(targetLetterBlock.Parent, 'Gem1')
+    local gem2 = Utils.getFirstDescendantByName(targetLetterBlock.Parent, 'Gem2')
+
+    local gemParts = {gem1, gem2}
 
     for _, part in ipairs(gemParts) do
         local template = Utils.getFromTemplates(templateName)

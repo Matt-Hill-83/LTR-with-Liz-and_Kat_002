@@ -68,7 +68,7 @@ function module.addRink(props)
     local rinkModel = Utils.cloneModel(cloneProps)
     local rinkPart = rinkModel.PrimaryPart
 
-    local buffer = 2
+    local buffer = 20
     rinkPart.Size = Vector3.new(size.X, rinkPart.Size.Y, size.Z - buffer)
 
     local grabbers = bridgeConfig.itemConfig.grabbers or {}
