@@ -20,14 +20,7 @@ local sectorConfigs = {
 local hexIslandConfigs = {
     {
         hexNum = 1,
-        statueConfigs = {
-            Liz = {
-                sentence = {'I', 'SEE', 'A', 'CAT'},
-                character = 'lizHappy',
-                -- songId = '6342102168',
-                keyColor = Colors.colors.yellow
-            }
-        },
+        statueConfigs = {},
         bridgeConfigs = {
             {item = nil},
             {
@@ -42,13 +35,6 @@ local hexIslandConfigs = {
     },
     {
         hexNum = 2,
-        statueConfigs = {
-            Kat = {
-                sentence = {'NOT', 'A', 'CAT'},
-                character = 'katScared',
-                songId = '6342102168'
-            }
-        },
         bridgeConfigs = {
             {item = nil},
             {
@@ -62,14 +48,8 @@ local hexIslandConfigs = {
         }
     },
     {
-        hexNum = 3,
-        statueConfigs = {
-            Kat = {
-                sentence = {'RUN', 'TO', 'THE', 'BUN'},
-                character = 'katScared'
-                -- songId = '6342102168'
-            }
-        }
+        hexNum = 3
+
         -- bridgeConfigs = {
         --     {item = nil},
         --     {
