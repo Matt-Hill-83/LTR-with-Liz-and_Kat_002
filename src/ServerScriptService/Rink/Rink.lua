@@ -72,7 +72,8 @@ function module.addRink(props)
     rinkPart.Size = Vector3.new(size.X, rinkPart.Size.Y, size.Z - buffer)
 
     local grabbers = bridgeConfig.itemConfig.grabbers or {}
-    local words = bridgeConfig.itemConfig.words or {}
+    local words = grabbers
+    -- local words = bridgeConfig.itemConfig.words or {}
     for grabberIndex, grabberWord in ipairs(grabbers) do
         local offsetX = (grabberIndex - 1) * 10
         local positioner = Instance.new('Part', rinkModel)

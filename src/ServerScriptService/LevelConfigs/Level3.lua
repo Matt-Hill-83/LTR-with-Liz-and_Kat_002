@@ -1,20 +1,160 @@
+local Sss = game:GetService('ServerScriptService')
+local Colors = require(Sss.Source.Constants.Const_02_Colors)
+
 local module = {}
 
-local config = {
-    {
-        words = {
+local sector1Config = {
+    freezeConveyor = true,
+    words = {
+        'NAP', --
+        'TAP', --
+        'RAP', --
+        'ZAP' --
+    }
+}
 
-            "SAT", --
-            "RAT", --
-            "CAT", --
-            "HAT", --
-            "MAT", --
-            "PAT", --
-            "VAT" --
+local sectorConfigs = {
+    sector1Config --
+}
+
+local hexIslandConfigs = {
+    {
+        hexNum = 1,
+        statueConfigs = {},
+        bridgeConfigs = {
+            {item = nil},
+            {
+                item = 'Rink',
+                itemConfig = {
+                    grabbers = {'CAT'}
+                }
+            },
+            {item = nil},
+            {item = nil},
+            {
+                item = 'Rink',
+                itemConfig = {
+                    grabbers = {'BAT'}
+                }
+            },
+            {item = nil}
+        }
+    },
+    {
+        hexNum = 2,
+        bridgeConfigs = {
+            {item = nil},
+            {
+                item = 'Rink',
+                itemConfig = {
+                    grabbers = {'RAT'}
+                }
+            },
+            {item = nil},
+            {item = nil},
+            {
+                item = 'Rink',
+                itemConfig = {
+                    grabbers = {'HAT'}
+                }
+            },
+            {item = nil}
+        }
+    },
+    {
+        hexNum = 3,
+        bridgeConfigs = {
+            {item = nil},
+            {
+                item = 'Rink',
+                itemConfig = {
+                    grabbers = {'MAT'}
+                }
+            },
+            {item = nil},
+            {item = nil},
+            {
+                item = 'Rink',
+                itemConfig = {
+                    grabbers = {'SAT'}
+                },
+                {item = nil}
+            }
+        }
+    },
+    {
+        hexNum = 4,
+        bridgeConfigs = {
+            {item = nil},
+            {
+                item = 'Rink',
+                itemConfig = {
+                    grabbers = {'PAT'}
+                }
+            },
+            {item = nil},
+            {item = nil},
+            {
+                item = 'Rink',
+                itemConfig = {
+                    grabbers = {'CAT'}
+                }
+            },
+            {item = nil}
+        }
+    },
+    {
+        hexNum = 5,
+        bridgeConfigs = {
+            {item = nil},
+            {
+                item = 'Rink',
+                itemConfig = {
+                    grabbers = {'MAT'}
+                }
+            },
+            {item = nil},
+            {item = nil},
+            {
+                item = 'Rink',
+                itemConfig = {
+                    grabbers = {'CAT'}
+                }
+            },
+            {item = nil}
+        }
+    },
+    {
+        hexNum = 6,
+        bridgeConfigs = {
+            {item = nil},
+            {
+                item = 'Rink',
+                itemConfig = {
+                    grabbers = {'PAT'}
+                }
+            },
+            {item = nil},
+            {item = nil},
+            {
+                item = 'Rink',
+                itemConfig = {
+                    grabbers = {'CAT'}
+                },
+                {item = nil}
+            }
         }
     }
 }
 
-module.sectorConfigs = config
+module.sectorConfigs = sectorConfigs
+module.hexIslandConfigs = hexIslandConfigs
+
+module.targetWords = {
+    {word = 'RAT', target = 4, found = 0}, --
+    {word = 'CAT', target = 4, found = 0}, --
+    {word = 'BAT', target = 4, found = 0}, --
+    {word = 'HAT', target = 4, found = 0} --
+}
 
 return module
