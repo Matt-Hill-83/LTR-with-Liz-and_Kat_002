@@ -26,8 +26,8 @@ local hexIslandConfigs = {
             {
                 item = 'Rink',
                 itemConfig = {
-                    words = {'NOT', 'CAT'},
-                    grabbers = {'NOT', 'CAT'}
+                    words = {'CAT'},
+                    grabbers = {'CAT'}
                 }
             },
             {item = nil}
@@ -40,27 +40,68 @@ local hexIslandConfigs = {
             {
                 item = 'Rink',
                 itemConfig = {
-                    words = {'RUN', 'BUN'},
-                    grabbers = {'RUN', 'BUN'}
+                    words = {'CAT'},
+                    grabbers = {'CAT'}
                 }
             },
             {item = nil}
         }
     },
     {
-        hexNum = 3
-
-        -- bridgeConfigs = {
-        --     {item = nil},
-        --     {
-        --         item = 'Rink',
-        --         itemConfig = {
-        --             words = {'SEE', 'CAT'},
-        --             grabbers = {'SEE', 'CAT'}
-        --         }
-        --     },
-        --     {item = nil}
-        -- }
+        hexNum = 3,
+        bridgeConfigs = {
+            {item = nil},
+            {
+                item = 'Rink',
+                itemConfig = {
+                    words = {'BAT'},
+                    grabbers = {'BAT'}
+                }
+            },
+            {item = nil}
+        }
+    },
+    {
+        hexNum = 4,
+        bridgeConfigs = {
+            {item = nil},
+            {
+                item = 'Rink',
+                itemConfig = {
+                    words = {'BUN'},
+                    grabbers = {'CAT'}
+                }
+            },
+            {item = nil}
+        }
+    },
+    {
+        hexNum = 5,
+        bridgeConfigs = {
+            {item = nil},
+            {
+                item = 'Rink',
+                itemConfig = {
+                    words = {'BUN'},
+                    grabbers = {'CAT'}
+                }
+            },
+            {item = nil}
+        }
+    },
+    {
+        hexNum = 6,
+        bridgeConfigs = {
+            {item = nil},
+            {
+                item = 'Rink',
+                itemConfig = {
+                    words = {'RUN', 'BUN'},
+                    grabbers = {'CAT'}
+                }
+            },
+            {item = nil}
+        }
     }
 }
 

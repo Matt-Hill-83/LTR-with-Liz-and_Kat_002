@@ -82,9 +82,9 @@ function module.addRink(props)
                 parent = rinkPart,
                 child = positioner,
                 offsetConfig = {
-                    useParentNearEdge = Vector3.new(0, -1, -1),
-                    useChildNearEdge = Vector3.new(0, -1, -1),
-                    offsetAdder = Vector3.new(offsetX, 0, 20)
+                    useParentNearEdge = Vector3.new(0, -1, 0),
+                    useChildNearEdge = Vector3.new(0, -1, 0),
+                    offsetAdder = Vector3.new(offsetX, 0, 0)
                 }
             }
         )

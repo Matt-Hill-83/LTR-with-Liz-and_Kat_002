@@ -95,7 +95,7 @@ local function addRemoteObjects()
     end
     islandTemplate:Destroy()
 
-    -- Terrain.initTerrain({parentFolder = workspace})
+    Terrain.initTerrain({parentFolder = workspace})
 
     PlayerStatManager.init()
     ConfigRemoteEvents.initRemoteEvents()
