@@ -4,7 +4,7 @@ local Utils = require(Sss.Source.Utils.U001GeneralUtils)
 local Utils3 = require(Sss.Source.Utils.U003PartsUtils)
 local LetterUtils = require(Sss.Source.Utils.U004LetterUtils)
 
-local Replicator = require(Sss.Source.BlockDash.Replicator)
+-- local Replicator = require(Sss.Source.BlockDash.Replicator)
 
 local module = {}
 
@@ -50,8 +50,8 @@ function module.initDoor(props)
     local parentFolder = props.parentFolder
     local keyName = props.keyName
     local doorWidth = props.doorWidth or 8
-    local width = 20
-    -- local width = props.width or 32
+    -- local width = 20
+    local width = props.width or 32
     local noGem = props.noGem
 
     local doorTemplate = Utils.getFromTemplates('GemLetterDoor')
