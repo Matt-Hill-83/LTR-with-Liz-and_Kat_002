@@ -6,8 +6,8 @@ activeSpawn = 'SpawnLocation_Hex3'
 activeSpawn = 'SpawnLocation_Hex1'
 activeSpawn = 'SpawnLocation_ramp'
 activeSpawn = 'SpawnLocation_L2H1'
-activeSpawn = 'Spawn-L2'
 activeSpawn = 'SpawnLocation_L3H1'
+activeSpawn = 'Spawn-L2'
 activeSpawn = 'SpawnLocation_L3_ramp'
 
 local devGameConfig = {
