@@ -108,23 +108,12 @@ local function wordFound(tool, player)
     delay(1, destroyParts)
 
     local keyTemplate = Utils.getFromTemplates('HexLetterGemTool')
-    -- local parent = player.Character.PrimaryPart
-
     local newKey = keyTemplate:Clone()
-    print('newKey' .. ' - start')
-    print(newKey)
-
-    -- This is temporary
-    -- newKey.Parent = parent
 
     local newTool = Utils.getFirstDescendantByType(newKey, 'Tool')
     newTool.Name = targetWord
-    print('newTool' .. ' - start')
-    print(newTool)
 
     local keyPart = newKey.PrimaryPart
-    print('keyPart' .. ' - start')
-    print(keyPart)
 
     LetterUtils.applyLetterText({letterBlock = newKey, char = targetWord})
 
@@ -138,16 +127,6 @@ local function wordFound(tool, player)
     )
 
     newTool.Parent = player.Character
-    -- local keyOffset = 3
-
-    -- newKey:SetPrimaryPartCFrame(
-    --     CFrame.new(
-    --         player.Character.PrimaryPart.CFrame.Position + (keyOffset * player.Character.PrimaryPart.CFrame.LookVector),
-    --         player.Character.PrimaryPart.Position
-    --     )
-    -- )
-
-    -- newKey.Parent = workspace
     keyPart.Anchored = false
 end
 
