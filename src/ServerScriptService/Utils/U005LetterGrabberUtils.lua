@@ -8,7 +8,7 @@ local Const4 = require(Sss.Source.Constants.Const_04_Characters)
 local LetterUtils = require(Sss.Source.Utils.U004LetterUtils)
 
 local PlayerStatManager = require(Sss.Source.AddRemoteObjects.PlayerStatManager)
-
+local Leaderboard = require(Sss.Source.AddRemoteObjects.Leaderboard)
 local module = {}
 
 local function getSortedBlocks(tool2)
@@ -106,6 +106,14 @@ local function wordFound(tool, player)
 
     local function destroyParts()
         tool:Destroy()
+
+        if player:FindFirstChild('leaderstats') then
+            local wins = player.leaderstats.Wins
+            wins.Value = wins.Value + 1
+        end
+
+        PlayerStatManager:ChangeStat(player, 'Gems', 1)
+        Leaderboard.updateLB()
     end
     delay(1, destroyParts)
 
@@ -157,6 +165,11 @@ local function partTouched(touchedBlock, player)
             touchedBlock.Anchored = true
             local hiddenParts = Utils.hideItemAndChildren2({item = touchedBlock, hide = true})
             touchedBlock.CanCollide = false
+
+            if player:FindFirstChild('leaderstats') then
+                local wins = player.leaderstats.Wins
+                wins.Value = wins.Value + 1
+            end
 
             function showLetter()
                 touchedBlock.Anchored = false

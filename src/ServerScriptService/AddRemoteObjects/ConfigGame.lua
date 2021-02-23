@@ -18,6 +18,8 @@ local function configPlayers()
     Players.RespawnTime = 0
 
     local function onCharacterAdded(character)
+        print('onCharacterAdded' .. ' - start')
+        print(onCharacterAdded)
         character:WaitForChild('Humanoid').WalkSpeed = Constants.gameConfig.walkSpeed
 
         local player = Players:GetPlayerFromCharacter(character)
