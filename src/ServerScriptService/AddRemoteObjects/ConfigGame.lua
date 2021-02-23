@@ -17,7 +17,7 @@ local module = {}
 local function configPlayers()
     Players.RespawnTime = 0
 
-    local initComplete = false
+    -- local initComplete = false
 
     local function onCharacterAdded(character)
         print('onCharacterAdded' .. ' - start')
@@ -36,7 +36,7 @@ local function configPlayers()
         local targetWords
 
         -- Wait so that gui can exists
-        if initComplete == true then
+        if gameState.initComplete == true then
             -- targetWords = levelConfig.getTargetWords()
             wait(2)
             targetWords = gameState.targetWords
@@ -47,8 +47,7 @@ local function configPlayers()
         end
 
         updateWordGuiRE2:FireClient(player, {targetWords = targetWords})
-        -- updateWordGuiRE2:FireClient(player, {levelConfig = levelConfig})
-        initComplete = true
+        gameState.initComplete = true
     end
 
     local function onPlayerAdded(player)
