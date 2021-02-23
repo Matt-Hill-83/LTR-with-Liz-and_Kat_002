@@ -3,6 +3,8 @@ local Sss = game:GetService('ServerScriptService')
 local Utils = require(Sss.Source.Utils.U001GeneralUtils)
 local Utils3 = require(Sss.Source.Utils.U003PartsUtils)
 
+local Constants = require(Sss.Source.Constants.Constants)
+
 local Door = require(Sss.Source.Door.Door)
 
 local module = {}
@@ -26,12 +28,13 @@ function module.initHexWalls(props)
                 noGem = false
             end
 
+            local width = Constants.gameConfig.isDev and 20 or 32
+
             local doorProps = {
                 positioner = positioner,
                 parentFolder = parentFolder,
                 keyName = word,
-                width = 20,
-                -- width = 32,
+                width = width,
                 noGem = noGem
             }
 
