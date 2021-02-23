@@ -11,10 +11,6 @@ local function createStray(char, parentFolder, props)
     -- local isGem = true
 
     local blockTemplate = props and props.blockTemplate
-    if props and props.blockTemplate then
-    -- print('props.blockTemplate' .. ' - start')
-    -- print(props.blockTemplate)
-    end
     local letterBlockFolder = Utils.getFromTemplates('LetterBlockTemplates')
 
     local modelClone
@@ -24,15 +20,13 @@ local function createStray(char, parentFolder, props)
         local letterBlockTemplate = Utils.getFromTemplates('HexLetterGemTemplate')
         modelClone = letterBlockTemplate:Clone()
     else
-        -- local letterBlockTemplate = Utils.getFirstDescendantByName(letterBlockFolder, 'Stray_available')
         local letterBlockTemplate = blockTemplate or Utils.getFirstDescendantByName(letterBlockFolder, 'BD_6_blank')
         local letterBlockTemplate2 = letterBlockTemplate:Clone(letterBlockTemplate)
-        -- letterBlockTemplate2.Parent = letterBlockTemplate.Parent
 
         local dummyModel = Instance.new('Model', letterBlockFolder)
         letterBlockTemplate2.Parent = dummyModel
         dummyModel.PrimaryPart = letterBlockTemplate
-        -- modelClone = dummyModel:Clone()
+
         modelClone = dummyModel
         newLetterBlock = letterBlockTemplate2
     end
@@ -76,7 +70,6 @@ local function createStray(char, parentFolder, props)
     return newLetterBlock
 end
 
-print('initStraysInRegions++++++++++++++++++++++++++++++++++++++++++++++++')
 local function initStraysInRegions(props)
     local parentFolder = props.parentFolder
     local strayRegions = Utils.getByTagInParent({parent = parentFolder, tag = 'StrayRegion'})
@@ -123,7 +116,6 @@ local function initStraysInRegions(props)
     --
 end
 local function initStraysInRegion(props)
-    print('initStraysInRegion----------------------------------')
     local numBlocks = props.numBlocks
     local region = props.region
     local words = props.words

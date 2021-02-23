@@ -17,6 +17,8 @@ local module = {}
 local function configPlayers()
     Players.RespawnTime = 0
 
+    local initComplete = false
+
     local function onCharacterAdded(character)
         print('onCharacterAdded' .. ' - start')
         print(onCharacterAdded)
@@ -30,7 +32,13 @@ local function configPlayers()
         local gameState = PlayerStatManager.getGameState(player)
         gameState.levelConfig = levelConfig
 
-        updateWordGuiRE2:FireAllClients({levelConfig = levelConfig})
+        -- Wait so that gui can exists
+        if initComplete == true then
+            wait(2)
+        end
+
+        updateWordGuiRE2:FireClient(player, {levelConfig = levelConfig})
+        initComplete = true
     end
 
     local function onPlayerAdded(player)
@@ -239,8 +247,6 @@ function module.configGame()
     local allSpawnLocations = Utils.getDescendantsByType(workspace, 'SpawnLocation')
 
     for _, item in ipairs(allSpawnLocations) do
-        print('spawns-------------------------')
-        print(item.Name)
         if item.Name == Constants.gameConfig.activeSpawn then
             item.Enabled = true
         else
