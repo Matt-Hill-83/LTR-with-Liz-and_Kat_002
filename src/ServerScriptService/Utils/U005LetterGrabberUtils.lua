@@ -103,7 +103,7 @@ local function wordFound(tool, player)
             updateWordGuiRE:FireAllClients({levelConfig = levelConfig})
         end
     end
-    delay(2, destroyParts)
+    delay(0, destroyParts)
 
     local keyTemplate = Utils.getFromTemplates('HexLetterGemTool')
     local parent = player.Character.PrimaryPart
@@ -162,12 +162,12 @@ local function partTouched(touchedBlock, player)
             local hiddenParts = Utils.hideItemAndChildren2({item = touchedBlock, hide = true})
             touchedBlock.CanCollide = false
 
-            function destroyParts()
+            function showLetter()
                 touchedBlock.Anchored = false
                 touchedBlock.CanCollide = true
                 Utils.unhideHideItems({items = hiddenParts})
             end
-            delay(2, destroyParts)
+            delay(2, showLetter)
         end
     end
 end
