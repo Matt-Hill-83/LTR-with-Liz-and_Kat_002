@@ -166,11 +166,6 @@ local function partTouched(touchedBlock, player)
             local hiddenParts = Utils.hideItemAndChildren2({item = touchedBlock, hide = true})
             touchedBlock.CanCollide = false
 
-            -- if player:FindFirstChild('leaderstats') then
-            --     local wins = player.leaderstats.Wins
-            --     wins.Value = wins.Value + 1
-            -- end
-
             function showLetter()
                 touchedBlock.Anchored = false
                 touchedBlock.CanCollide = true
