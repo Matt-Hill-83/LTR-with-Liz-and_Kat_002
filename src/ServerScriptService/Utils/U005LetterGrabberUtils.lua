@@ -111,7 +111,6 @@ local function wordFound(tool, player)
     -- local parent = player.Character.PrimaryPart
 
     local newKey = keyTemplate:Clone()
-    newKey.Name = targetWord
     print('newKey' .. ' - start')
     print(newKey)
 
@@ -119,6 +118,7 @@ local function wordFound(tool, player)
     -- newKey.Parent = parent
 
     local newTool = Utils.getFirstDescendantByType(newKey, 'Tool')
+    newTool.Name = targetWord
     print('newTool' .. ' - start')
     print(newTool)
 
