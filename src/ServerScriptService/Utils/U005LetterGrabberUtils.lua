@@ -76,6 +76,8 @@ local function styleLetterGrabberBlocks(tool)
 end
 
 local function wordFound(tool, player)
+    print('wordFound' .. ' - start')
+    print(wordFound)
     local updateWordGuiRE = RS:WaitForChild(Const_Client.RemoteEvents.UpdateWordGuiRE)
 
     local wordModel = tool.Word
