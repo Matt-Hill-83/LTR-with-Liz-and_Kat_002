@@ -13,6 +13,8 @@ function module.initHexWalls(props)
     local parentFolder = props.parentFolder or workspace
     local wallPositioners = Utils.getDescendantsByName(parentFolder, 'WallProxy')
 
+    local width = Constants.gameConfig.isDev and 20 or 32
+
     for _, positioner in ipairs(wallPositioners) do
         local label = Utils.getFirstDescendantByName(positioner, 'WallProxyLabel')
 
@@ -27,8 +29,6 @@ function module.initHexWalls(props)
             else
                 noGem = false
             end
-
-            local width = Constants.gameConfig.isDev and 20 or 32
 
             local doorProps = {
                 positioner = positioner,
