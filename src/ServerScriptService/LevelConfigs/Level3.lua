@@ -44,18 +44,13 @@ local hexIslandConfigs = {
         hexNum = 2,
         bridgeConfigs = {
             {item = nil},
+            {item = nil},
+            {item = nil},
+            {item = nil},
             {
                 item = 'Rink',
                 itemConfig = {
                     grabbers = {'RAT'}
-                }
-            },
-            {item = nil},
-            {item = nil},
-            {
-                item = 'Rink',
-                itemConfig = {
-                    grabbers = {'HAT'}
                 }
             },
             {item = nil}
@@ -65,12 +60,7 @@ local hexIslandConfigs = {
         hexNum = 3,
         bridgeConfigs = {
             {item = nil},
-            {
-                item = 'Rink',
-                itemConfig = {
-                    grabbers = {'MAT'}
-                }
-            },
+            {item = nil},
             {item = nil},
             {item = nil},
             {
@@ -107,18 +97,13 @@ local hexIslandConfigs = {
         hexNum = 5,
         bridgeConfigs = {
             {item = nil},
+            {item = nil},
+            {item = nil},
+            {item = nil},
             {
                 item = 'Rink',
                 itemConfig = {
                     grabbers = {'MAT'}
-                }
-            },
-            {item = nil},
-            {item = nil},
-            {
-                item = 'Rink',
-                itemConfig = {
-                    grabbers = {'CAT'}
                 }
             },
             {item = nil}
