@@ -81,38 +81,51 @@ local function wordFound(tool, player)
     local wordModel = tool.Word
     local targetWord = wordModel.TargetWord.Value
 
-    local function destroyParts()
-        -- local explosionSound = '515938718'
-        -- Utils.playSound(explosionSound, 0.5)
-        module.resetBlocks(tool)
-        module.setActiveLetterGrabberBlock(tool)
-        module.styleLetterGrabberBlocks(tool)
+    -- local explosionSound = '515938718'
+    -- Utils.playSound(explosionSound, 0.5)
+    module.resetBlocks(tool)
+    module.setActiveLetterGrabberBlock(tool)
+    module.styleLetterGrabberBlocks(tool)
 
-        local gameState = PlayerStatManager.getGameState(player)
-        local levelConfig = gameState.levelConfig
-        local targetWordObj = Utils.getListItemByPropValue(levelConfig.targetWords, 'word', targetWord)
+    local gameState = PlayerStatManager.getGameState(player)
+    local levelConfig = gameState.levelConfig
+    local targetWordObj = Utils.getListItemByPropValue(levelConfig.targetWords, 'word', targetWord)
 
-        local fireSound = '5207654419'
-        local currentWord2 = Const4.wordConfigs[targetWord]
-        if currentWord2 then
-            local soundId = currentWord2.soundId or fireSound
-            Utils.playSound(soundId)
-        end
-        if targetWordObj then
-            targetWordObj.found = targetWordObj.found + 1
-            updateWordGuiRE:FireAllClients({levelConfig = levelConfig})
-        end
+    local fireSound = '5207654419'
+    local currentWord2 = Const4.wordConfigs[targetWord]
+    if currentWord2 then
+        local soundId = currentWord2.soundId or fireSound
+        Utils.playSound(soundId)
     end
-    delay(0, destroyParts)
+    if targetWordObj then
+        targetWordObj.found = targetWordObj.found + 1
+        updateWordGuiRE:FireAllClients({levelConfig = levelConfig})
+    end
+
+    local function destroyParts()
+        tool:Destroy()
+    end
+    delay(1, destroyParts)
 
     local keyTemplate = Utils.getFromTemplates('HexLetterGemTool')
-    local parent = player.Character.PrimaryPart
+    -- local parent = player.Character.PrimaryPart
 
     local newKey = keyTemplate:Clone()
+    newKey.Name = targetWord
+    print('newKey' .. ' - start')
+    print(newKey)
+
     -- This is temporary
-    newKey.Parent = parent
+    -- newKey.Parent = parent
+
+    local newTool = Utils.getFirstDescendantByType(newKey, 'Tool')
+    print('newTool' .. ' - start')
+    print(newTool)
 
     local keyPart = newKey.PrimaryPart
+    print('keyPart' .. ' - start')
+    print(keyPart)
+
     LetterUtils.applyLetterText({letterBlock = newKey, char = targetWord})
 
     LetterUtils.createPropOnLetterBlock(
@@ -123,16 +136,18 @@ local function wordFound(tool, player)
             propType = 'StringValue'
         }
     )
-    local keyOffset = 3
 
-    newKey:SetPrimaryPartCFrame(
-        CFrame.new(
-            player.Character.PrimaryPart.CFrame.Position + (keyOffset * player.Character.PrimaryPart.CFrame.LookVector),
-            player.Character.PrimaryPart.Position
-        )
-    )
+    newTool.Parent = player.Character
+    -- local keyOffset = 3
 
-    newKey.Parent = workspace
+    -- newKey:SetPrimaryPartCFrame(
+    --     CFrame.new(
+    --         player.Character.PrimaryPart.CFrame.Position + (keyOffset * player.Character.PrimaryPart.CFrame.LookVector),
+    --         player.Character.PrimaryPart.Position
+    --     )
+    -- )
+
+    -- newKey.Parent = workspace
     keyPart.Anchored = false
 end
 
