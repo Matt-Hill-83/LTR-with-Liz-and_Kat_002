@@ -31,11 +31,12 @@ function module.initRemoteEvents()
         print('sgui' .. ' - start')
         print(sgui)
         local gameState = PlayerStatManager.getGameState(player)
-        local levelConfig = gameState.levelConfig
+        local targetWords = gameState.targetWords
         RenderWordGrid.renderGrid(
             {
                 sgui = sgui,
-                levelConfig = levelConfig,
+                targetWords = targetWords,
+                -- levelConfig = levelConfig,
                 displayHeight = displayHeight
             }
         )

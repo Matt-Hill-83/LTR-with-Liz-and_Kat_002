@@ -28,16 +28,26 @@ local function configPlayers()
 
         local updateWordGuiRE2 = RS:WaitForChild(Const_Client.RemoteEvents.UpdateWordGuiRE)
 
-        local levelConfig = LevelConfigs.levelConfigs[1]
+        -- I need to get this dynamicaly, so it's not all the same object
+        -- I need to get this dynamicaly, so it's not all the same object
+        -- I need to get this dynamicaly, so it's not all the same object
+
         local gameState = PlayerStatManager.getGameState(player)
-        gameState.levelConfig = levelConfig
+        local targetWords
 
         -- Wait so that gui can exists
         if initComplete == true then
+            -- targetWords = levelConfig.getTargetWords()
             wait(2)
+            targetWords = gameState.targetWords
+        else
+            local levelConfig = LevelConfigs.levelConfigs[1]
+            targetWords = levelConfig.getTargetWords()
+            gameState.targetWords = targetWords
         end
 
-        updateWordGuiRE2:FireClient(player, {levelConfig = levelConfig})
+        updateWordGuiRE2:FireClient(player, {targetWords = targetWords})
+        -- updateWordGuiRE2:FireClient(player, {levelConfig = levelConfig})
         initComplete = true
     end
 

@@ -90,8 +90,10 @@ local function wordFound(tool, player)
     module.styleLetterGrabberBlocks(tool)
 
     local gameState = PlayerStatManager.getGameState(player)
-    local levelConfig = gameState.levelConfig
-    local targetWordObj = Utils.getListItemByPropValue(levelConfig.targetWords, 'word', targetWord)
+    local targetWords = gameState.targetWords
+    local targetWordObj = Utils.getListItemByPropValue(targetWords, 'word', targetWord)
+    -- local levelConfig = gameState.levelConfig
+    -- local targetWordObj = Utils.getListItemByPropValue(levelConfig.targetWords, 'word', targetWord)
 
     local fireSound = '5207654419'
     local currentWord2 = Const4.wordConfigs[targetWord]
@@ -101,7 +103,8 @@ local function wordFound(tool, player)
     end
     if targetWordObj then
         targetWordObj.found = targetWordObj.found + 1
-        updateWordGuiRE:FireAllClients({levelConfig = levelConfig})
+        updateWordGuiRE:FireClient(player, {levelConfig = levelConfig})
+    -- updateWordGuiRE:FireAllClients({levelConfig = levelConfig})
     end
 
     local function destroyParts()

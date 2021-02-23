@@ -150,4 +150,13 @@ module.targetWords = {
     {word = 'HAT', target = 4, found = 0} --
 }
 
+function module.getTargetWords()
+    return {
+        {word = 'RAT', target = 4, found = 0}, --
+        {word = 'CAT', target = 4, found = 0}, --
+        {word = 'BAT', target = 4, found = 0}, --
+        {word = 'HAT', target = 4, found = 0} --
+    }
+end
+
 return module

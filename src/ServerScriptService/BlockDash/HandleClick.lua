@@ -86,7 +86,7 @@ local function onSelectRackBlock(clickedLetter, miniGameState, player)
     end
 
     if targetLetterBlock then
-        local letterBlockCFrame = clickedLetter.CFrame
+        -- local letterBlockCFrame = clickedLetter.CFrame
         local clickedBlockClone = clickedLetter:Clone()
         clickedBlockClone.Parent = clickedLetter.Parent
         clickedBlockClone.CanCollide = false
@@ -182,8 +182,8 @@ local function onSelectRackBlock(clickedLetter, miniGameState, player)
             for _, wordLetter in ipairs(wordLetters) do
                 local firePositioners = Utils.getDescendantsByName(wordLetter, 'FirePositioner')
                 for _, firePositioner in ipairs(firePositioners) do
-                    local fire = Instance.new('Fire', firePositioner)
-                    fire.Size = 20
+                    local fire2 = Instance.new('Fire', firePositioner)
+                    fire2.Size = 20
                 end
             end
         end
