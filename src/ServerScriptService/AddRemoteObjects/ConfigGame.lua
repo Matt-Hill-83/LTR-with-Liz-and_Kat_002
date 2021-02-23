@@ -17,8 +17,6 @@ local module = {}
 local function configPlayers()
     Players.RespawnTime = 0
 
-    -- local initComplete = false
-
     local function onCharacterAdded(character)
         print('onCharacterAdded' .. ' - start')
         print(onCharacterAdded)
