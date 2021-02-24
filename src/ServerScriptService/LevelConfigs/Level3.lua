@@ -80,6 +80,7 @@ local hexIslandConfigs = {
                 item = 'Rink',
                 itemConfig = {
                     grabbers = {'PAT'}
+                    -- words = {'CAT', 'RAT'}
                 }
             },
             {item = nil},

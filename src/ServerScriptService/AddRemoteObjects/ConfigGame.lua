@@ -127,13 +127,17 @@ local function setVisibility()
     if Constants.gameConfig.transparency then
         local taggedPartsTransparent = CS:GetTagged('Transparent')
         for _, item in ipairs(taggedPartsTransparent) do
-            item.Transparency = 1
+            if item:IsA('BasePart') then
+                item.Transparency = 1
+            end
         end
     end
 
     local canCollideOff = CS:GetTagged('CanCollideOff')
     for _, item in ipairs(canCollideOff) do
-        item.CanCollide = false
+        if item:IsA('BasePart') then
+            item.CanCollide = false
+        end
     end
 
     if not Constants.gameConfig.isDev then

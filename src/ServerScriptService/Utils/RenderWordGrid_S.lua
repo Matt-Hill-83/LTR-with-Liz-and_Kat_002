@@ -4,14 +4,11 @@ local Utils = require(Sss.Source.Utils.U001GeneralUtils)
 local module = {}
 
 local renderGrid = function(props)
-    -- local levelConfig = props.levelConfig
     local targetWords = props.targetWords
     local sgui = props.sgui
     local displayHeight = props.displayHeight
 
-    -- local words = levelConfig.targetWords
     local words = targetWords
-    -- local words = levelConfig.getTargetWords()
 
     local mainGui = sgui
     mainGui.Enabled = true
